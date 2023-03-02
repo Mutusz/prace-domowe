@@ -1,0 +1,49 @@
+<html>
+<head>
+	<script>
+		function test() {
+		;}
+	
+		function wyslij() {
+		
+			//walidacja imienia i nazwiska
+			if (document.getElementById('im').value=='') alert('Proszę wpisać imię i nazwisko.')
+				else {if (document.getElementById('im').value.split(" ").length<2) alert('Proszę wpisać i imię i nazwisko.')}
+		
+			//walidacja maila
+			if (document.getElementById('mail').value=='') alert('Proszę podać maila.')
+				else {if (document.getElementById('mail').value.split("@").length!=2) alert('E-mail musi mieć dokładnie jeden znak "@".')
+					else {if (document.getElementById('mail').value.split("@")[1]=='') alert('Podaj część po znaku "@". Adres '+document.getElementById('mail').value+' jest niepełny.')}}
+		
+			//walidacja oceny
+			if (document.getElementById('ocena').value=='') alert('Proszę wpisać ocenę.')
+				else {if (document.getElementById('ocena').value>6) alert('Wartość nie może być większa niż 6.')
+					else {if (document.getElementById('ocena').value<1) alert('Wartość nie może być mniejsza niż 1.') 
+						else {if (document.getElementById('ocena').value%1!=0) alert('Wartość musi być liczbą naturalną.')}}}
+		
+			//walidacja daty
+			if (document.getElementById('dat').value=='') alert('Proszę wpisać datę.');
+		}
+		
+		function reset() {
+			document.getElementById('im').value=null;
+			document.getElementById('mail').value=null;
+			document.getElementById('ocena').value=null;
+			document.getElementById('dat').value=null;
+		}
+		
+	</script>
+</head>
+<body>
+	Uczeń: <hr>
+
+		Imię i nazwisko: <input type='text' id='im'>*<br>
+		e-mail: <input type='e-mail' id='mail'>*<br>
+		ocena: <input type='number' id='ocena'>*<br>
+		data: <input type='datetime-local' id='dat'>*<br>
+		<button onClick='wyslij()'>wyślij</button> <button onClick='reset()'>reset</button>
+
+	<hr> Uwaga! <br>
+	Pola oznaczone * są obowiązkowe! <button onClick='test()'>wyślij</button>
+</body>
+</html>
